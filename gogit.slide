@@ -1,0 +1,289 @@
+Go + Git for Rookies
+Instituto Superior Técnico, 26 November
+
+[[http://web.ist.utl.pt/joao.leao.guerreiro/][João Guerreiro]]
+[[hackerschool.io][HackerSchool]]
+
+joao.guerreiro@hackerschool.tecnico.ulisboa.pt
+
+* Outline
+
+1. What is Go
+2. The Basics
+3. Practical Exercices
+4. Concurrency
+5. Tools
+
+# Also based on talk presented at [[http://javasig.com][NYJavaSIG]] on April 23, 2015.
+# The next several slides are from rsc's 2013/distsys and 2015/mit talks.
+
+
+* What is Go?
+
+"Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
+
+.link http://golang.org
+
+* History
+
+Design began in late 2007.
+
+- Robert Griesemer, Rob Pike, and Ken Thompson.
+- Ian Lance Taylor and Russ Cox.
+
+Open source since 2009 with a very active community.
+
+Language stable as of Go 1, early 2012.
+
+* Why Go?
+
+Go is fast
+
+* System Scale
+
+.image ../2012/waza/gophercomplex6.jpg
+
+* Who uses Go besides Google?
+
+.link http://golang.org/wiki/GoUsers
+
+Apcera, Bitbucket, bitly, Canonical, CloudFlare, Core OS, Digital Ocean, Docker, Dropbox, Facebook, Getty Images, GitHub, Heroku, Iron.io, Kubernetes, Medium, MongoDB services, Mozilla services, New York Times, pool.ntp.org, Secret, SmugMug, SoundCloud, Stripe, Square, Thomson Reuters, Tumblr, ...
+
+.image ../2014/state-of-go/bus.jpg 300 _
+
+* Go intentionally leaves out many features
+
+- No classes
+- No constructors
+- No inheritance
+- No exceptions
+- No annotations
+- No user-defined generics
+
+* Why does Go leave out those features?
+
+Clarity is critical.
+
+When reading code, it should be clear what the program will do.
+
+When writing code, it should be clear how to make the program do what you want.
+
+Sometimes this means writing out a loop instead of invoking an obscure function.
+
+For more background on design:
+
+- [[http://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html][Less is exponentially more (Pike, 2012)]]
+- [[http://talks.golang.org/2012/splash.article][Go at Google: Language Design in the Service of Software Engineering (Pike, 2012)]]
+
+* Examples
+
+* Fetch the search results
+
+#.code go-for-java-programmers/frontend.go /Run the Google search/,/ENDSEARCH/
+
+#.play go-for-java-programmers/frontend.go /A Result contains/,/\)\)/
+
+
+* Communicating Sequential Processes (Hoare, 1978)
+
+Concurrent programs are structured as independent processes that
+execute sequentially and communicate by passing messages.
+
+Sequential execution is easy to understand.  Async callbacks are not.
+
+*Go*primitives:* goroutines, channels, and the `select` statement.
+
+* Goroutines
+
+"Don't communicate by sharing memory, share memory by communicating."
+
+Goroutines are like lightweight threads.
+
+They start with tiny stacks and resize as needed.
+
+Go programs can have hundreds of thousands of them.
+
+Start a goroutine using the `go` statement:
+
+  go f(args)
+
+The Go runtime schedules goroutines onto OS threads.
+
+Blocked goroutines don't use a thread.
+
+* Channels
+
+Channels provide communication between goroutines.
+
+  c := make(chan string)
+
+  // goroutine 1
+  c <- "hello!"
+
+  // goroutine 2
+  s := <-c
+  fmt.Println(s) // "hello!"
+
+* Select
+
+A `select` statement blocks until communication can proceed.
+
+  select {
+  case n := <-in:
+    fmt.Println("received", n)
+  case out <- v:
+    fmt.Println("sent", v)
+  }
+
+Only the selected case runs.
+
+* Example: Google Search (backend)
+
+Q: What does Google search do?
+
+A: Given a query, return a page of search results (and some ads).
+
+Q: How do we get the search results?
+
+A: Send the query to Web search, Image search, YouTube, Maps, News, etc., then mix the results.
+
+How do we implement this?
+
+* Google Search: A fake framework
+
+We can simulate a Search function with a random timeout up to 100ms.
+
+.code go-for-java-programmers/google-serial.go /START2/,/STOP2/
+
+* Google Search: Test the framework
+
+.play go-for-java-programmers/google-serial.go /func.main/,/}/
+
+* Google Search (serial)
+
+The Google function takes a query and returns a slice of Results (which are just strings).
+
+Google invokes Web, Image, and Video searches serially, appending them to the results slice.
+
+.play go-for-java-programmers/google-serial.go /START1/,/STOP1/
+
+* Google Search (parallel)
+
+Run the Web, Image, and Video searches concurrently, and wait for all results.
+
+The `func` literals are closures over `query` and `c`.
+
+.play go-for-java-programmers/google-parallel.go /Google/,/^}/
+
+* Google Search (timeout)
+
+Don't wait for slow servers.
+
+No locks.  No condition variables.  No callbacks.
+
+.play go-for-java-programmers/google-timeout.go /START/,/STOP/
+
+* Avoid timeout
+
+Q: How do we avoid discarding results from slow servers?
+
+A: Replicate the servers.  Send requests to multiple replicas, and use the first response.
+
+.code go-for-java-programmers/first.go /START1/,/STOP1/
+
+* Using the First function
+
+.play go-for-java-programmers/first.go /START2/,/STOP2/
+
+* Google Search (replicated)
+
+Reduce tail latency using replicated search servers.
+
+.play go-for-java-programmers/google-first.go /START/,/STOP/
+
+* And still…
+
+No locks.  No condition variables.  No callbacks.
+
+* Summary
+
+In just a few simple transformations we used Go's concurrency primitives to convert a
+
+- slow
+- sequential
+- failure-sensitive
+
+program into one that is
+
+- fast
+- concurrent
+- replicated
+- robust.
+
+* Tools
+
+* Go has great tools
+
+- gofmt and goimports
+- the go tool
+- godoc
+- IDE and editor support
+
+The language is designed for tooling.
+
+* gofmt and goimports
+
+Gofmt formats code automatically.  No options.
+
+Goimports updates import statements based on your workspace.
+
+Most people run these tools on save.
+
+.link http://play.golang.org/p/GPqra77cBK
+
+* The go tool
+
+The go tool builds Go programs from source in a conventional directory layout.
+No Makefiles or other configs.
+
+Fetch the `present` tool and its dependencies, build it, and install it:
+
+  % go get golang.org/x/tools/cmd/present
+
+Run it:
+
+  % present
+
+* godoc
+
+Generated documentation for the world's open-source Go code:
+
+.link http://godoc.org
+
+* IDE and editor support
+
+Eclipse, IntelliJ, emacs, vim, many others.
+
+- `gofmt`
+- `goimports`
+- `godoc` lookups
+- code completion
+- code navigation
+
+There's no "Go IDE".
+
+Go tools meet you where you are.
+
+* Where to Go next
+
+Take the Go Tour online.
+
+.link http://tour.golang.org
+
+Lots more material.
+
+.link http://golang.org/wiki/Learn
+
+Great community.
+
+.link http://golang.org/project
