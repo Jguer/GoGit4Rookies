@@ -17,7 +17,6 @@ joao.guerreiro@hackerschool.tecnico.ulisboa.pt
 # Also based on talk presented at [[http://javasig.com][NYJavaSIG]] on April 23, 2015.
 # The next several slides are from rsc's 2013/distsys and 2015/mit talks.
 
-
 * What is Go?
 
 "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
@@ -37,19 +36,13 @@ Language stable as of Go 1, early 2012.
 
 * Why Go?
 
-Go is fast
-
-* System Scale
-
-.image ../2012/waza/gophercomplex6.jpg
+.image ./gogit/img/funfast.svg
 
 * Who uses Go besides Google?
 
 .link http://golang.org/wiki/GoUsers
 
 Apcera, Bitbucket, bitly, Canonical, CloudFlare, Core OS, Digital Ocean, Docker, Dropbox, Facebook, Getty Images, GitHub, Heroku, Iron.io, Kubernetes, Medium, MongoDB services, Mozilla services, New York Times, pool.ntp.org, Secret, SmugMug, SoundCloud, Stripe, Square, Thomson Reuters, Tumblr, ...
-
-.image ../2014/state-of-go/bus.jpg 300 _
 
 * Go intentionally leaves out many features
 
@@ -74,6 +67,15 @@ For more background on design:
 
 - [[http://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html][Less is exponentially more (Pike, 2012)]]
 - [[http://talks.golang.org/2012/splash.article][Go at Google: Language Design in the Service of Software Engineering (Pike, 2012)]]
+
+* Basics
+
+* Data types
+
+.play ./gogit/code/datatypes.go
+
+* Flow Control
+.play ./gogit/code/flow1.go /START1/,/STOP1/
 
 * Examples
 
