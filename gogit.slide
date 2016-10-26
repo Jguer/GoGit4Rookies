@@ -8,20 +8,33 @@ joao.guerreiro@hackerschool.tecnico.ulisboa.pt
 
 * Outline
 
-1. What is Go
-2. The Basics
-3. Practical Exercices
-4. Concurrency
-5. Tools
+1. Setup
+2. What is Go
+3. The Basics
+4. Practical Exercices
+5. Concurrency
+6. Tools
 
 # Also based on talk presented at [[http://javasig.com][NYJavaSIG]] on April 23, 2015.
 # The next several slides are from rsc's 2013/distsys and 2015/mit talks.
+
+* Workstation Setup
+.link https://play.golang.org/
+.iframe https://play.golang.org/
+
+.link https://golang.org/dl/
+Editors:
+- Atom
+- Sublime
+- Vim (Vim-go)
+- Emacs
 
 * What is Go?
 
 "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
 
 .link http://golang.org
+.image ./gogit/img/gopher.svg
 
 * History
 
@@ -75,7 +88,7 @@ For more background on design:
 .play ./gogit/code/datatypes.go
 
 * Flow Control
-.play ./gogit/code/flow1.go /START1/,/STOP1/
+.play -edit ./gogit/code/flow1.go /START1/,/STOP1/
 
 * Examples
 
@@ -138,74 +151,6 @@ A `select` statement blocks until communication can proceed.
   }
 
 Only the selected case runs.
-
-* Example: Google Search (backend)
-
-Q: What does Google search do?
-
-A: Given a query, return a page of search results (and some ads).
-
-Q: How do we get the search results?
-
-A: Send the query to Web search, Image search, YouTube, Maps, News, etc., then mix the results.
-
-How do we implement this?
-
-* Google Search: A fake framework
-
-We can simulate a Search function with a random timeout up to 100ms.
-
-.code go-for-java-programmers/google-serial.go /START2/,/STOP2/
-
-* Google Search: Test the framework
-
-.play go-for-java-programmers/google-serial.go /func.main/,/}/
-
-* Google Search (serial)
-
-The Google function takes a query and returns a slice of Results (which are just strings).
-
-Google invokes Web, Image, and Video searches serially, appending them to the results slice.
-
-.play go-for-java-programmers/google-serial.go /START1/,/STOP1/
-
-* Google Search (parallel)
-
-Run the Web, Image, and Video searches concurrently, and wait for all results.
-
-The `func` literals are closures over `query` and `c`.
-
-.play go-for-java-programmers/google-parallel.go /Google/,/^}/
-
-* Google Search (timeout)
-
-Don't wait for slow servers.
-
-No locks.  No condition variables.  No callbacks.
-
-.play go-for-java-programmers/google-timeout.go /START/,/STOP/
-
-* Avoid timeout
-
-Q: How do we avoid discarding results from slow servers?
-
-A: Replicate the servers.  Send requests to multiple replicas, and use the first response.
-
-.code go-for-java-programmers/first.go /START1/,/STOP1/
-
-* Using the First function
-
-.play go-for-java-programmers/first.go /START2/,/STOP2/
-
-* Google Search (replicated)
-
-Reduce tail latency using replicated search servers.
-
-.play go-for-java-programmers/google-first.go /START/,/STOP/
-
-* And still…
-
-No locks.  No condition variables.  No callbacks.
 
 * Summary
 
@@ -282,9 +227,13 @@ Take the Go Tour online.
 
 .link http://tour.golang.org
 
+.link http://exercism.io/
+
 Lots more material.
 
 .link http://golang.org/wiki/Learn
+
+.link https://gobyexample.com/
 
 Great community.
 

@@ -6,19 +6,14 @@ import (
 	"fmt"
 )
 
-// START1 OMIT
-func normalfor() {
+func main() {
+	// START1 OMIT
 	for i := 0; i < 20; i++ {
 		if i%2 == 0 {
-			fmt.Println(i)
+			fmt.Println(i, "is pair")
+		} else {
+			fmt.Println(i, "is not pair")
 		}
 	}
-
-	return
-}
-
-// STOP1 OMIT
-
-func main() {
-	normalfor()
+	// STOP1 OMIT
 }
