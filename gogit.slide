@@ -40,7 +40,7 @@ Editors:
 
 Design began in late 2007.
 
-- Robert Griesemer, Rob Pike, and Ken Thompson.
+- Robert Griesemer, Rob Pike (UTF-8), and Ken Thompson (B).
 - Ian Lance Taylor and Russ Cox.
 
 Open source since 2009 with a very active community.
@@ -85,10 +85,17 @@ For more background on design:
 
 * Data types
 
-.play ./gogit/code/datatypes.go
+.play -edit ./gogit/code/datatypes.go
 
 * Flow Control
+for
 .play -edit ./gogit/code/flow1.go /START1/,/STOP1/
+while
+.play -edit ./gogit/code/flow2.go /START1/,/STOP1/
+
+* Arrays 
+
+
 
 * Examples
 
@@ -97,7 +104,6 @@ For more background on design:
 #.code go-for-java-programmers/frontend.go /Run the Google search/,/ENDSEARCH/
 
 #.play go-for-java-programmers/frontend.go /A Result contains/,/\)\)/
-
 
 * Communicating Sequential Processes (Hoare, 1978)
 
