@@ -88,12 +88,12 @@ For more background on design:
 .play -edit ./gogit/code/datatypes.go
 
 * Flow Control
-for
+* for
 .play -edit ./gogit/code/flow1.go /START1/,/STOP1/
-while
+* while
 .play -edit ./gogit/code/flow2.go /START1/,/STOP1/
 
-* Arrays 
+* Arrays
 
 
 
