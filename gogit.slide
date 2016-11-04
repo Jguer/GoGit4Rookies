@@ -15,8 +15,9 @@ joao.guerreiro@hackerschool.tecnico.ulisboa.pt
 5. Concurrency
 6. Tools
 
-# Also based on talk presented at [[http://javasig.com][NYJavaSIG]] on April 23, 2015.
+# Based on talk presented at [[http://javasig.com][NYJavaSIG]] on April 23, 2015.
 # The next several slides are from rsc's 2013/distsys and 2015/mit talks.
+# Uses many snippets from Go by Example
 
 * Workstation Setup
 .link https://play.golang.org/
@@ -95,16 +96,26 @@ For more background on design:
 .play -edit ./gogit/code/flow2.go /START1/,/STOP1/
 
 * Arrays
+.play -edit ./gogit/code/arrays.go /START1/,/STOP1/
 
+* Slices
+.play -edit ./gogit/code/slices.go /START1/,/STOP1/
+
+* Slices
+.play -edit ./gogit/code/slices.go /START2/,/STOP2/
+
+* Maps
+.play -edit ./gogit/code/maps.go /START1/,/STOP1/
+
+* Range
+.play -edit ./gogit/code/range.go /START1/,/STOP1/
+
+* Review time
 
 
 * Examples
 
 * Fetch the search results
-
-#.code go-for-java-programmers/frontend.go /Run the Google search/,/ENDSEARCH/
-
-#.play go-for-java-programmers/frontend.go /A Result contains/,/\)\)/
 
 * Communicating Sequential Processes (Hoare, 1978)
 
