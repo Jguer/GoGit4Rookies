@@ -86,15 +86,25 @@ For more background on design:
 * Basics
 
 * Data types
-
 .play -edit ./gogit/code/datatypes.go
+
+* Data types
+.play -edit ./gogit/code/datatypes2.go
+
+* Data types
+.play -edit ./gogit/code/datatypes3.go
 
 * Flow Control
 * for
 .play -edit ./gogit/code/flow1.go /START1/,/STOP1/
+
 * while
 .play -edit ./gogit/code/flow2.go /START1/,/STOP1/
 
+* switch
+.play -edit ./gogit/code/flow3.go /START1/,/STOP1/
+
+* Advanced Datatypes
 * Arrays
 .play -edit ./gogit/code/arrays.go /START1/,/STOP1/
 
@@ -110,8 +120,33 @@ For more background on design:
 * Range
 .play -edit ./gogit/code/range.go /START1/,/STOP1/
 
-* Review time
+* Range
+.play -edit ./gogit/code/range.go /START2/,/STOP2/
 
+* Range
+.play -edit ./gogit/code/range.go /START3/,/STOP3/
+
+* Range
+.play -edit ./gogit/code/range.go /START4/,/STOP4/
+
+* Review time
+* Review time
+Basic Structure
+.code -edit ./gogit/code/review.go /START1/,/STOP1/
+
+* Review time
+Types
+.code -edit ./gogit/code/review.go /START2/,/STOP2/
+
+* Functions
+* Functions
+.play -edit ./gogit/code/functions1.go /START1/,/STOP1/
+
+* Functions
+.play -edit ./gogit/code/functions2.go
+
+* Functions
+.play -edit ./gogit/code/functions1.go /START1/,/STOP1/
 
 * Examples
 

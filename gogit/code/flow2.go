@@ -8,17 +8,16 @@ import (
 
 func main() {
 	// START1 OMIT
-	i := 0
-	for {
-		if i%2 == 0 {
-			fmt.Println(i, "is even")
-		} else {
-			fmt.Println(i, "is odd")
-		}
-		i++
-		if i == 20 {
-			break
-		}
+
+	i := 2 // HL
+	fmt.Print("write ", i, " as ")
+	switch i {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
 	}
 	// STOP1 OMIT
 }

@@ -16,8 +16,10 @@ func main() {
 	fmt.Println("set:", s)
 	fmt.Println("get:", s[2])
 	fmt.Println("len:", len(s))
+	fmt.Println("cap1:", cap(s))
 
 	s = append(s, "d") // HL
+	fmt.Println("cap2:", cap(s))
 	s = append(s, "e", "f") // HL
 	fmt.Println("apd:", s)
 
@@ -26,7 +28,7 @@ func main() {
 	fmt.Println("cpy:", c)
 	// STOP1 OMIT
 
-    fmt.Print("\n\n\n\n\n\n")
+	fmt.Print("\n\n\n\n\n\n")
 	// START2 OMIT
 	fmt.Println("s:", s)
 	l := s[2:5] // HL
