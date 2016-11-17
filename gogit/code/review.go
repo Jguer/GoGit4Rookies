@@ -42,9 +42,23 @@ func main() {
     rune        alias for int32 (represents a Unicode code point)
 	// STOP2 OMIT
 
+    #arrays
 	// START3 OMIT
+	var a [5]int
+    b := [...]int{5, 10, 15}
+    c := [5]int{5, 10, 15}
+
 	// STOP3 OMIT
 
+    #slices
 	// START4 OMIT
+    var a []int
+    b := make([]int, 0)
+    c := []string{"a", "b", "c", "d"}
+
+
+	a = append(a, 3)
+    len(a)
+    cap(a)
 	// STOP4 OMIT
 }

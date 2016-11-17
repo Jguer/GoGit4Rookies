@@ -138,6 +138,14 @@ Basic Structure
 Types
 .code -edit ./gogit/code/review.go /START2/,/STOP2/
 
+* Review time
+Arrays
+.code -edit ./gogit/code/review.go /START3/,/STOP3/
+
+* Review time
+Slices
+.code -edit ./gogit/code/review.go /START4/,/STOP4/
+
 * Functions
 * Functions
 .play -edit ./gogit/code/functions1.go /START1/,/STOP1/
