@@ -56,9 +56,15 @@ func main() {
     b := make([]int, 0)
     c := []string{"a", "b", "c", "d"}
 
-
 	a = append(a, 3)
     len(a)
     cap(a)
 	// STOP4 OMIT
+
+	// START5 OMIT
+    if
+    for
+    while
+    switch
+	// STOP5 OMIT
 }

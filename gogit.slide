@@ -11,13 +11,14 @@ joao.guerreiro@hackerschool.tecnico.ulisboa.pt
 1. Setup
 2. What is Go
 3. The Basics
-4. Practical Exercices
-5. Concurrency
-6. Tools
+4. Practical Exercises
+5. A little further
+6. Git
+7. Misc
 
 # Based on talk presented at [[http://javasig.com][NYJavaSIG]] on April 23, 2015.
 # The next several slides are from rsc's 2013/distsys and 2015/mit talks.
-# Uses many snippets from Go by Example
+# Uses many snippets from Go by Example, they are simply the best.
 
 * Workstation Setup
 .link https://play.golang.org/
@@ -95,6 +96,9 @@ For more background on design:
 .play -edit ./gogit/code/datatypes3.go
 
 * Flow Control
+* if
+.play -edit ./gogit/code/flow0.go /START1/,/STOP1/
+
 * for
 .play -edit ./gogit/code/flow1.go /START1/,/STOP1/
 
@@ -146,6 +150,14 @@ Arrays
 Slices
 .code -edit ./gogit/code/review.go /START4/,/STOP4/
 
+* Review time
+Flow Control
+.code -edit ./gogit/code/review.go /START5/,/STOP5/
+
+* Exercise time
+
+* Exercise time
+** Input
 * Functions
 * Functions
 .play -edit ./gogit/code/functions1.go /START1/,/STOP1/
