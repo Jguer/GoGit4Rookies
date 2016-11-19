@@ -18,5 +18,5 @@ var (
 
 func main() {
 	toBe := true
-	fmt.Printf("%T(%v)\n%T(%v)\n%T(%v)\n", ToBe, ToBe, MaxInt, MaxInt, z, z)
+	fmt.Printf("%T(%v)\n%T(%v)\n%T(%v)\n", toBe, toBe, maxInt, maxInt, z, z)
 }
