@@ -11,9 +11,10 @@ import (
 
 func init() {
 	rand.Seed(time.Now().UnixNano())
-	fmt.Println("Seed", time.Now().UTC().UnixNano())
 	fmt.Println("Test", rand.Intn(999)) // 0 < i <= 999
 }
+
+// STOP0 OMIT
 
 func main() {
 	// START1 OMIT

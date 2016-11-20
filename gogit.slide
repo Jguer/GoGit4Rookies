@@ -231,6 +231,10 @@ Example Output:
 
 * Exercise time
 3.
+.code ./gogit/exercises/3.go /START0/,/STOP0/
+
+* Exercise time
+3.
 Use a map of type int-string to save a dictionary of number names.
 From a random number generator (from 0 to 999) print each number in words.
 Example output:
@@ -254,10 +258,26 @@ Example output:
 .play -edit ./gogit/code/functions1.go /START1/,/STOP1/
 
 * Functions
+.play -edit ./gogit/code/functions1_1.go /START1/,/STOP1/
+
+* Functions
 .play -edit ./gogit/code/functions2.go
 
 * Functions
-.play -edit ./gogit/code/functions1.go /START1/,/STOP1/
+.play -edit ./gogit/code/functions3.go /START1/,/STOP1/
+
+* Functions
+.play -edit ./gogit/code/functions4.go /START1/,/STOP1/
+
+* Functions
+.play -edit ./gogit/code/functions5.go /START1/,/STOP1/
+
+* Reference
+- slice
+- map
+- channel
+- pointer
+- function
 
 * Examples
 
