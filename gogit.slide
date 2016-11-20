@@ -100,14 +100,29 @@ For more background on design:
 * if
 .play -edit ./gogit/code/flow0.go /START1/,/STOP1/
 
+* if
+  ==    equal
+  !=    not equal
+  <     less
+  <=    less or equal
+  >     greater
+  >=    greater or equal
+
 * for
 .play -edit ./gogit/code/flow1.go /START1/,/STOP1/
+
+* for
+  continue    skip
+  break       exit cycle
 
 * while
 .play -edit ./gogit/code/flow2.go /START1/,/STOP1/
 
 * switch
 .play -edit ./gogit/code/flow3.go /START1/,/STOP1/
+
+* switch
+  fallthrough
 
 * Advanced Datatypes
 * Arrays
@@ -122,6 +137,9 @@ For more background on design:
 * Maps
 .play -edit ./gogit/code/maps.go /START1/,/STOP1/
 
+* Maps
+.play -edit ./gogit/code/maps.go /START2/,/STOP2/
+
 * Range
 .play -edit ./gogit/code/range.go /START1/,/STOP1/
 
@@ -133,6 +151,9 @@ For more background on design:
 
 * Range
 .play -edit ./gogit/code/range.go /START4/,/STOP4/
+
+* Detail
+.image ./gogit/img/table.png _ 800
 
 * Review time
 * Review time
@@ -156,9 +177,78 @@ Flow Control
 .code -edit ./gogit/code/review.go /START5/,/STOP5/
 
 * Exercise time
+* Exercise time
+1.
+Write a program that prints numbers from 12 to 0 unless it's 4, 2 or 10
+Example output:
+
+  i = 12
+  i = 11
+  i = 9
+  i = 8
+  i = 7
+  i = 6
+  i = 5
+  i = 3
+  i = 1
+  i = 0
+
+* Solved
+* Exercise time
+1.
+.play ./gogit/exercises/1.go /START1/,/STOP1/
 
 * Exercise time
-** Input
+1.
+.play ./gogit/exercises/1.go /START2/,/STOP2/
+
+* Exercise time
+1.
+.play ./gogit/exercises/1.go /START3/,/STOP3/
+
+* Exercise time
+2.
+Write a program with an array or slice with the following words: "Gate", "Comet" and "Pizza".
+Print the first character of the word if the word contains the letter e.
+Example Output:
+
+  [Gate Comet Pizza]
+  Found one! G
+  Found one! C
+
+* Solved
+* Exercise time
+2.
+.play ./gogit/exercises/2.go /START1/,/STOP1/
+
+* Exercise time
+2.
+.play ./gogit/exercises/2.go /START2/,/STOP2/
+
+* Exercise time
+2.
+.play ./gogit/exercises/2.go /START3/,/STOP3/
+
+* Exercise time
+3.
+Use a map of type int-string to save a dictionary of number names.
+From a random number generator (from 0 to 999) print each number in words.
+Example output:
+
+  Random Number: 831
+  Converted: eight three one
+
+* Solved
+* Exercise time
+3.
+.play ./gogit/exercises/3.go /START1/,/STOP1/
+
+* Exercise time
+3.
+.play ./gogit/exercises/3.go /START2/,/STOP2/
+
+
+
 * Functions
 * Functions
 .play -edit ./gogit/code/functions1.go /START1/,/STOP1/
