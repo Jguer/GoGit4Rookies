@@ -252,7 +252,6 @@ Example output:
 .play ./gogit/exercises/3.go /START2/,/STOP2/
 
 
-
 * Functions
 * Functions
 .play -edit ./gogit/code/functions1.go /START1/,/STOP1/
@@ -278,6 +277,18 @@ Example output:
 - channel
 - pointer
 - function
+
+* Structs
+.play -edit ./gogit/code/structs1.go /START1/,/STOP1/
+
+* Structs
+.play -edit ./gogit/code/structs2.go /START1/,/STOP1/
+
+* Structs and pointers
+.play -edit ./gogit/code/structs2.go /START2/,/STOP2/
+
+* Methods
+.play -edit ./gogit/code/methods1.go /START1/,/STOP1/
 
 * Examples
 
@@ -390,20 +401,6 @@ Run it:
 Generated documentation for the world's open-source Go code:
 
 .link http://godoc.org
-
-* IDE and editor support
-
-Eclipse, IntelliJ, emacs, vim, many others.
-
-- `gofmt`
-- `goimports`
-- `godoc` lookups
-- code completion
-- code navigation
-
-There's no "Go IDE".
-
-Go tools meet you where you are.
 
 * Where to Go next
 
