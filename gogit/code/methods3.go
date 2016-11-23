@@ -8,7 +8,6 @@ import (
 )
 
 // START1 OMIT
-
 type Vertex struct {
 	X, Y float64
 }
@@ -26,9 +25,9 @@ func main() {
 	fmt.Println(v.Abs())
 	fmt.Println(AbsFunc(v))
 
-	vp := &Vertex{4, 3}
-	fmt.Println(vp.Abs())
-	fmt.Println(AbsFunc(*vp))
+	p := &Vertex{4, 3}
+	fmt.Println(p.Abs())
+	fmt.Println(AbsFunc(*p))
 }
 
 // STOP1 OMIT

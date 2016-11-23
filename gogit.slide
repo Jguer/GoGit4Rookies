@@ -12,9 +12,9 @@ joao.guerreiro@hackerschool.tecnico.ulisboa.pt
 2. What is Go
 3. The Basics
 4. Practical Exercises
-5. A little further
-6. Git
-7. Misc
+5. Git
+6. A little further
+7. Practical examples
 
 # Based on talk presented at [[http://javasig.com][NYJavaSIG]] on April 23, 2015.
 # The next several slides are from rsc's 2013/distsys and 2015/mit talks.
@@ -48,8 +48,13 @@ Design began in late 2007.
 - Ian Lance Taylor and Russ Cox.
 
 Open source since 2009 with a very active community.
-
 Language stable as of Go 1, early 2012.
+
+* The dudes
+.image ./gogit/img/rob_pike.jpg _ 800
+
+* The dudes
+.image ./gogit/img/ken_thompson.jpg _ 600
 
 * Why Go?
 
@@ -253,6 +258,19 @@ Example output:
 
 * Organizing code
 
+
+* Git
+.image ./gogit/img/linus1.jpg
+
+* Git
+.image ./gogit/img/linus2.jpg
+
+* Git
+.image ./gogit/img/linus3.jpg
+
+* Git
+.image ./gogit/img/linus.jpg
+
 * Git
 .link https://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf
 
@@ -337,115 +355,67 @@ Example output:
 * Methods
 .play -edit ./gogit/code/methods2.go /START1/,/STOP1/
 
-* Fetch the search results
+* Methods
+.play -edit ./gogit/code/methods3.go /START1/,/STOP1/
 
-* Communicating Sequential Processes (Hoare, 1978)
+* Interfaces
+.play -edit ./gogit/code/interfaces1.go /START1/,/STOP1/
 
-Concurrent programs are structured as independent processes that
-execute sequentially and communicate by passing messages.
+* Interfaces
+.play -edit ./gogit/code/interfaces1.go /START2/,/STOP2/
 
-Sequential execution is easy to understand.  Async callbacks are not.
+* Interfaces
+.play -edit ./gogit/code/interfaces1.go /START3/,/STOP3/
 
-*Go*primitives:* goroutines, channels, and the `select` statement.
+* Interfaces
+.play -edit ./gogit/code/interfaces1.go /START4/,/STOP4/
 
-* Goroutines
+* Practical examples
 
-"Don't communicate by sharing memory, share memory by communicating."
+* Serial
+.link https://github.com/bugst/go-serial
+.link https://godoc.org/go.bug.st/serial.v1
 
-Goroutines are like lightweight threads.
+* Serial
+.code ./gogit/fun/serial/serial.go /START1/,/STOP1/
 
-They start with tiny stacks and resize as needed.
+* Serial
+.code ./gogit/fun/serial/serial.go /START2/,/STOP2/
 
-Go programs can have hundreds of thousands of them.
+* Serial
+.code ./gogit/fun/serial/serial.go /START3/,/STOP3/
 
-Start a goroutine using the `go` statement:
+* Serial
+.code ./gogit/fun/serial/serial.go /START4/,/STOP4/
 
-  go f(args)
+* File I/O
 
-The Go runtime schedules goroutines onto OS threads.
+  echo "Python cool"\n"C cooler"\n"Golang coolest" > file.txt
 
-Blocked goroutines don't use a thread.
+* File I/O - ioutil
+.code ./gogit/fun/io/ioutil.go /START1/,/STOP1/
 
-* Channels
+* File I/O - bufio
+.code ./gogit/fun/io/bufio.go /START0/,/STOP0/
 
-Channels provide communication between goroutines.
+* File I/O - bufio
+.code ./gogit/fun/io/bufio.go /START1/,/STOP1/
 
-  c := make(chan string)
+* File I/O
 
-  // goroutine 1
-  c <- "hello!"
+  const (
+        O_RDONLY int = syscall.O_RDONLY // open the file read-only.
+        O_WRONLY int = syscall.O_WRONLY // open the file write-only.
+        O_RDWR   int = syscall.O_RDWR   // open the file read-write.
+        O_APPEND int = syscall.O_APPEND // append data to the file when writing.
+        O_CREATE int = syscall.O_CREAT  // create a new file if none exists.
+        O_EXCL   int = syscall.O_EXCL   // used with O_CREATE, file must not exist
+        O_SYNC   int = syscall.O_SYNC   // open for synchronous I/O.
+        O_TRUNC  int = syscall.O_TRUNC  // if possible, truncate file when opened.
+  )
 
-  // goroutine 2
-  s := <-c
-  fmt.Println(s) // "hello!"
 
-* Select
 
-A `select` statement blocks until communication can proceed.
-
-  select {
-  case n := <-in:
-    fmt.Println("received", n)
-  case out <- v:
-    fmt.Println("sent", v)
-  }
-
-Only the selected case runs.
-
-* Summary
-
-In just a few simple transformations we used Go's concurrency primitives to convert a
-
-- slow
-- sequential
-- failure-sensitive
-
-program into one that is
-
-- fast
-- concurrent
-- replicated
-- robust.
-
-* Tools
-
-* Go has great tools
-
-- gofmt and goimports
-- the go tool
-- godoc
-- IDE and editor support
-
-The language is designed for tooling.
-
-* gofmt and goimports
-
-Gofmt formats code automatically.  No options.
-
-Goimports updates import statements based on your workspace.
-
-Most people run these tools on save.
-
-.link http://play.golang.org/p/GPqra77cBK
-
-* The go tool
-
-The go tool builds Go programs from source in a conventional directory layout.
-No Makefiles or other configs.
-
-Fetch the `present` tool and its dependencies, build it, and install it:
-
-  % go get golang.org/x/tools/cmd/present
-
-Run it:
-
-  % present
-
-* godoc
-
-Generated documentation for the world's open-source Go code:
-
-.link http://godoc.org
 
 * Where to Go next
 
