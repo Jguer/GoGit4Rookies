@@ -22,16 +22,47 @@ joao.guerreiro@hackerschool.tecnico.ulisboa.pt
 
 * Workstation Setup
 .link https://play.golang.org/
-.iframe https://play.golang.org/
 .link http://cmder.net/
 # tinyurl
-
 .link https://golang.org/dl/
 Editors:
 - Atom
 - Sublime
 - Vim (Vim-go)
 - Emacs
+
+* Windows
+Abrir o cmder e correr
+
+  mkdir go-workshop
+
+* Windows
+.image ./gogit/img/wingo1.png _ 800
+
+* Windows
+.image ./gogit/img/wingo2.png _ 800
+
+* Windows
+.image ./gogit/img/wingo3.png _ 800
+
+* Windows
+  set GOPATH=%USERPROFILE%\go-workshop
+.image ./gogit/img/wingo4.png _ 700
+
+* Linux and Mac
+Run
+
+  export GOPATH=$HOME/go-workshop
+
+and then
+
+  echo "export GOPATH=$HOME/go-workshop" >> $HOME/.bashrc
+
+* Test
+
+  go get github.com/jguer/go-hes
+
+* Let's start
 
 * What is Go?
 
@@ -93,17 +124,17 @@ For more background on design:
 * Basics
 
 * Data types
-.play -edit ./gogit/code/datatypes.go
+.play -edit ./gogit/code/1-datatypes.go
 
 * Data types
-.play -edit ./gogit/code/datatypes2.go
+.play -edit ./gogit/code/2-datatypes2.go
 
 * Data types
-.play -edit ./gogit/code/datatypes3.go
+.play -edit ./gogit/code/3-datatypes3.go
 
 * Flow Control
 * if
-.play -edit ./gogit/code/flow0.go /START1/,/STOP1/
+.play -edit ./gogit/code/4-flow0.go /START1/,/STOP1/
 
 * if
   ==    equal
@@ -114,53 +145,25 @@ For more background on design:
   >=    greater or equal
 
 * for
-.play -edit ./gogit/code/flow1.go /START1/,/STOP1/
+.play -edit ./gogit/code/5-flow1.go /START1/,/STOP1/
 
 * for
   continue    skip
   break       exit cycle
 
-* while
-.play -edit ./gogit/code/flow2.go /START1/,/STOP1/
+* infinite loop
+.play -edit ./gogit/code/6-flow2.go /START1/,/STOP1/
+
+* for is while
+.play -edit ./gogit/code/7-flow2_1.go /START1/,/STOP1/
 
 * switch
-.play -edit ./gogit/code/flow3.go /START1/,/STOP1/
+.play -edit ./gogit/code/8-flow3.go /START1/,/STOP1/
 
 * switch
   fallthrough
 
-* Advanced Datatypes
-* Arrays
-.play -edit ./gogit/code/arrays.go /START1/,/STOP1/
-
-* Slices
-.play -edit ./gogit/code/slices.go /START1/,/STOP1/
-
-* Slices
-.play -edit ./gogit/code/slices.go /START2/,/STOP2/
-
-* Maps
-.play -edit ./gogit/code/maps.go /START1/,/STOP1/
-
-* Maps
-.play -edit ./gogit/code/maps.go /START2/,/STOP2/
-
-* Range
-.play -edit ./gogit/code/range.go /START1/,/STOP1/
-
-* Range
-.play -edit ./gogit/code/range.go /START2/,/STOP2/
-
-* Range
-.play -edit ./gogit/code/range.go /START3/,/STOP3/
-
-* Range
-.play -edit ./gogit/code/range.go /START4/,/STOP4/
-
-* Detail
-.image ./gogit/img/table.png _ 800
-
-* Review time
+* Review
 * Review time
 Basic Structure
 .code ./gogit/code/review.go /START1/,/STOP1/
@@ -169,19 +172,7 @@ Basic Structure
 Types
 .code ./gogit/code/review.go /START2/,/STOP2/
 
-* Review time
-Arrays
-.code ./gogit/code/review.go /START3/,/STOP3/
-
-* Review time
-Slices
-.code ./gogit/code/review.go /START4/,/STOP4/
-
-* Review time
-Flow Control
-.code ./gogit/code/review.go /START5/,/STOP5/
-
-* Exercise time
+* Exercise
 * Exercise time
 1.
 Write a program that prints numbers from 12 to 0 unless it's 4, 2 or 10
@@ -211,6 +202,49 @@ Example output:
 1.
 .play ./gogit/exercises/1.go /START3/,/STOP3/
 
+
+* Advanced Datatypes
+* Arrays
+.play -edit ./gogit/code/9-arrays.go /START1/,/STOP1/
+
+* Slices
+.play -edit ./gogit/code/10-slices1.go /START1/,/STOP1/
+
+* Slices
+.play -edit ./gogit/code/11-slices2.go /START1/,/STOP1/
+
+* Maps
+.play -edit ./gogit/code/maps.go /START1/,/STOP1/
+
+* Maps
+.play -edit ./gogit/code/maps.go /START2/,/STOP2/
+
+* Range
+.play -edit ./gogit/code/range.go /START1/,/STOP1/
+
+* Range
+.play -edit ./gogit/code/range.go /START2/,/STOP2/
+
+* Range
+.play -edit ./gogit/code/range.go /START3/,/STOP3/
+
+* Range
+.play -edit ./gogit/code/range.go /START4/,/STOP4/
+
+* Detail
+.image ./gogit/img/table.png _ 800
+
+* Review
+
+* Review time
+Arrays
+.code ./gogit/code/review.go /START3/,/STOP3/
+
+* Review time
+Slices
+.code ./gogit/code/review.go /START4/,/STOP4/
+
+* Exercise
 * Exercise time
 2.
 Write a program with an array or slice with the following words: "Gate", "Comet" and "Pizza".
