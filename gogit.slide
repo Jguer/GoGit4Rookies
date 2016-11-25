@@ -6,9 +6,15 @@ Instituto Superior Técnico, 26 November
 
 joao.guerreiro@hackerschool.tecnico.ulisboa.pt
 
+* Wifi
+
+*** Account name:         GOGit
+*** Password:             8gzPvC
+
 * Outline
 
 1. Setup
+1.1. Git 101
 2. What is Go
 3. The Basics
 4. Practical Exercises
@@ -137,8 +143,6 @@ Apcera, Bitbucket, bitlyr.blogspot.com/2012/06/less-is-exponentially-more.html][
 - [[http://talks.golang.org/2012/splash.article][Go at Google: Language Design in the Service of Software Engineering (Pike, 2012)]]
 
 * Basics
-
-* Use
 
 * Data types
 .play -edit ./gogit/code/1-datatypes.go
@@ -374,6 +378,19 @@ Use package strconv to turn the number into a string
 - pointer
 - function
 
+* Exercises
+4.
+Turn exercise 2 into a function that receives a string and a character to match
+and returns a bool, true if found, false if not found.
+Test with this main function:
+.code ./gogit/exercises/4.go /START1/,/STOP1/
+
+Possible function header:
+.code ./gogit/exercises/4.go /START3/,/STOP3/
+
+* Solved
+.play -edit ./gogit/exercises/4.go /START4/,/STOP4/
+
 * Structs
 .play -edit ./gogit/code/structs1.go /START1/,/STOP1/
 
@@ -391,9 +408,63 @@ Use package strconv to turn the number into a string
 
 * Methods
 .play -edit ./gogit/code/methods2.go /START1/,/STOP1/
-
 * Methods
 .play -edit ./gogit/code/methods3.go /START1/,/STOP1/
+
+* Exercises
+5.
+Create a structure to describe a student. It should include his Name, Number, Course  and
+Classes he's taking.
+
+Example:
+
+	eletrao := student{"J Guerreiro", 88888, "MEEC", []string{"FEE", "FTel", "E1", "Controlo"}}
+	fmt.Println(eletrao)
+	fmt.Printf("%+v \n", eletrao)
+
+Output :
+
+  {J Guerreiro 88888 MEEC [FEE FTel E1 Controlo]}
+  {name:J Guerreiro istid:88888 course:MEEC classes:[FEE FTel E1 Controlo]}
+
+* Solved
+
+* Solved
+.play -edit ./gogit/exercises/5.go /START1/,/STOP1/
+
+* Exercises
+6. Write 2 methods for your new structure:
+
+- One that returns true if the student's number is even
+
+  func (s student) even() bool {
+
+- One that changes the student's course and replaces his Classes
+
+  func (s *student) changeCourse(course string, classes []string) {
+
+* Solved
+
+* Solved
+.code ./gogit/exercises/6.go /START2/,/STOP2/
+
+
+* Solved
+.play -edit ./gogit/exercises/6.go /START1/,/STOP1/
+
+* Solved - we could go deeper
+
+  type student struct {
+    name    string
+    istid   int
+    course  string
+    classes []class
+  }
+  // Extension
+  type class struct {
+    name  string
+    value int
+  }
 
 * Interfaces
 .play -edit ./gogit/code/interfaces1.go /START1/,/STOP1/
@@ -451,6 +522,13 @@ Use package strconv to turn the number into a string
         O_TRUNC  int = syscall.O_TRUNC  // if possible, truncate file when opened.
   )
 
+* What is missing here
+
+- goroutines
+- channels
+- concurrent programming
+- closures
+
 * Where to Go next
 
 Take the Go Tour online.
@@ -461,6 +539,7 @@ Take the Go Tour online.
 
 Lots more material.
 
+.link https://github.com/avelino/awesome-go
 .link https://github.com/a8m/go-lang-cheat-sheet
 
 .link http://golang.org/wiki/Learn
