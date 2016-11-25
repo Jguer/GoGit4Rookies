@@ -14,6 +14,6 @@ func main() {
 	a, b := vals()
 	fmt.Println("Double return:", a, b)
 
-	_, c := vals()
+	_, c := vals() // we can ignore returns
 	fmt.Println("One return:", c)
 }

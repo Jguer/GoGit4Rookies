@@ -64,6 +64,44 @@ and then
 
 * Let's start
 
+* Git
+.image ./gogit/img/linus1.jpg
+
+* Git
+.image ./gogit/img/linus2.jpg
+
+* Git
+.image ./gogit/img/linus3.jpg
+
+* Git
+.image ./gogit/img/linus.jpg
+
+* Git
+.link https://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf
+
+  git init
+
+* Your first Go
+Basic Structure
+.code ./gogit/code/review.go /START1/,/STOP1/
+
+* Let's run it
+
+  go run intro.go
+
+* Git basics
+
+.image ./gogit/img/basic-usage.svg
+
+* Git basics
+  git add <file>
+  git add -A
+
+* Git basics
+
+  git commit -m "<message>"
+
+
 * What is Go?
 
 "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
@@ -95,33 +133,12 @@ Language stable as of Go 1, early 2012.
 
 .link http://golang.org/wiki/GoUsers
 
-Apcera, Bitbucket, bitly, Canonical, CloudFlare, Core OS, Digital Ocean, Docker, Dropbox, Facebook, Getty Images, GitHub, Heroku, Iron.io, Kubernetes, Medium, MongoDB services, Mozilla services, New York Times, pool.ntp.org, Secret, SmugMug, SoundCloud, Stripe, Square, Thomson Reuters, Tumblr, ...
-
-* Go intentionally leaves out many features
-
-- No classes
-- No constructors
-- No inheritance
-- No exceptions
-- No annotations
-- No user-defined generics
-
-* Why does Go leave out those features?
-
-Clarity is critical.
-
-When reading code, it should be clear what the program will do.
-
-When writing code, it should be clear how to make the program do what you want.
-
-Sometimes this means writing out a loop instead of invoking an obscure function.
-
-For more background on design:
-
-- [[http://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html][Less is exponentially more (Pike, 2012)]]
+Apcera, Bitbucket, bitlyr.blogspot.com/2012/06/less-is-exponentially-more.html][Less is exponentially more (Pike, 2012)]]
 - [[http://talks.golang.org/2012/splash.article][Go at Google: Language Design in the Service of Software Engineering (Pike, 2012)]]
 
 * Basics
+
+* Use
 
 * Data types
 .play -edit ./gogit/code/1-datatypes.go
@@ -164,9 +181,6 @@ For more background on design:
   fallthrough
 
 * Review
-* Review time
-Basic Structure
-.code ./gogit/code/review.go /START1/,/STOP1/
 
 * Review time
 Types
@@ -202,7 +216,6 @@ Example output:
 1.
 .play ./gogit/exercises/1.go /START3/,/STOP3/
 
-
 * Advanced Datatypes
 * Arrays
 .play -edit ./gogit/code/9-arrays.go /START1/,/STOP1/
@@ -217,22 +230,33 @@ Example output:
 .play -edit ./gogit/code/maps.go /START1/,/STOP1/
 
 * Maps
-.play -edit ./gogit/code/maps.go /START2/,/STOP2/
+	coolMap := map[int]string{
+		0: "zero",
+		1: "one",
+		2: "two",
+		3: "three",
+		4: "four",
+		5: "five",
+		6: "six",
+		7: "seven",
+		8: "eight",
+		9: "nine",
+	}
+
+* Bad
+.play -edit ./gogit/code/12-range1bad.go /START1/,/STOP1/
+
+* Good
+.play -edit ./gogit/code/12-range1.go /START1/,/STOP1/
 
 * Range
-.play -edit ./gogit/code/range.go /START1/,/STOP1/
+.play -edit ./gogit/code/13-range2.go /START1/,/STOP1/
 
 * Range
-.play -edit ./gogit/code/range.go /START2/,/STOP2/
+.play -edit ./gogit/code/14-range3.go /START1/,/STOP1/
 
 * Range
-.play -edit ./gogit/code/range.go /START3/,/STOP3/
-
-* Range
-.play -edit ./gogit/code/range.go /START4/,/STOP4/
-
-* Detail
-.image ./gogit/img/table.png _ 800
+.play -edit ./gogit/code/15-range4.go /START1/,/STOP1/
 
 * Review
 
@@ -281,53 +305,29 @@ Example output:
   Random Number: 831
   Converted: eight three one
 
+Tips:
+Use package strconv to turn the number into a string
+
+  i, err := strconv.Atoi("-42")
+  s := strconv.Itoa(-42)
+
 * Solved
 * Exercise time
 3.
-.play ./gogit/exercises/3.go /START1/,/STOP1/
+.play ./gogit/exercises/3.go /START3/,/STOP3/
 
 * Exercise time
 3.
 .play ./gogit/exercises/3.go /START2/,/STOP2/
 
 * Organizing code
-
-
-* Git
-.image ./gogit/img/linus1.jpg
-
-* Git
-.image ./gogit/img/linus2.jpg
-
-* Git
-.image ./gogit/img/linus3.jpg
-
-* Git
-.image ./gogit/img/linus.jpg
-
-* Git
-.link https://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf
-
-  git init
-
-* Git basics
-
-.image ./gogit/img/basic-usage.svg
-
-* Git basics
-  git add <file>
-  git add -A
-
-* Git basics
+* Git Check this out
   git checkout <file>
   git checkout .
 
   git reset HEAD <file>
 
-  git commit -m "<message>"
-
-
-* Git basics
+* Git Remote
   git remote add origin <server>
   git push origin master
 
@@ -339,11 +339,11 @@ Example output:
   git branch -d newbranch
   git push origin <branch>
 
-* Git cool
+* Git Cool
   git log --pretty=oneline
   git log --graph --oneline --decorate --all
 
-* Git we'll talk about it later
+* Git Merging
   git merge <branch>
 
 * Back to Go
@@ -384,7 +384,10 @@ Example output:
 .play -edit ./gogit/code/structs2.go /START2/,/STOP2/
 
 * Methods
-.play -edit ./gogit/code/methods1.go /START1/,/STOP1/
+.code ./gogit/code/methods1.go /START1/,/STOP1/
+
+* Methods
+.play -edit ./gogit/code/methods1.go /START2/,/STOP2/
 
 * Methods
 .play -edit ./gogit/code/methods2.go /START1/,/STOP1/
@@ -448,9 +451,6 @@ Example output:
         O_TRUNC  int = syscall.O_TRUNC  // if possible, truncate file when opened.
   )
 
-
-
-
 * Where to Go next
 
 Take the Go Tour online.
@@ -460,6 +460,8 @@ Take the Go Tour online.
 .link http://exercism.io/
 
 Lots more material.
+
+.link https://github.com/a8m/go-lang-cheat-sheet
 
 .link http://golang.org/wiki/Learn
 

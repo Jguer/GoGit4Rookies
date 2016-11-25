@@ -27,19 +27,4 @@ func main() {
 	n := map[string]string{"Social": "2.65EUR", "Bar de Civil": "3EUR"}
 	fmt.Println("map:", n)
 	// STOP1 OMIT
-
-	// START2 OMIT
-	_ = map[int]string{
-		0: "zero",
-		1: "one",
-		2: "two",
-		3: "three",
-		4: "four",
-		5: "five",
-		6: "six",
-		7: "seven",
-		8: "eight",
-		9: "nine",
-	}
-	// STOP2 OMIT
 }

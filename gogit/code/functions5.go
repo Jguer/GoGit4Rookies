@@ -7,7 +7,7 @@ import (
 )
 
 // START1 OMIT
-func valchanger(a *int, b int) {
+func valchanger(a *int, b int) { //Pass by reference
 	*a = *a + b
 }
 func main() {

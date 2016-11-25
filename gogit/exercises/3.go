@@ -6,6 +6,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -22,6 +23,7 @@ func main() {
 		0: "zero", 1: "one", 2: "two", 3: "three", 4: "four",
 		5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine",
 	}
+
 	randomNum := rand.Intn(999)
 	fmt.Println("Random Number", randomNum)
 	fmt.Print("Converted: ")
@@ -37,6 +39,7 @@ func main() {
 	fmt.Print("\n")
 	// STOP1 OMIT
 	alternativeone(numap)
+	alternativetwo(numap)
 
 }
 
@@ -61,5 +64,22 @@ func alternativeone(numap map[int]string) {
 	fmt.Print("\n")
 
 	// STOP2 OMIT
+	return
+}
+
+func alternativetwo(numap map[int]string) {
+	// START3 OMIT
+	randomNum := rand.Intn(999)
+	fmt.Println("Random Number", randomNum)
+
+	numString := strconv.Itoa(randomNum)
+
+	fmt.Print("Converted: ")
+	for _, c := range numString {
+		cInt, _ := strconv.Atoi(string(c))
+		fmt.Printf("%s ", numap[cInt])
+	}
+
+	// STOP3 OMIT
 	return
 }
